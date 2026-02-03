@@ -9,14 +9,15 @@ export default function SearchBar({ selectedCountry, onResult }) {
 
   try {
     const res = await axios.get(
-      "http://localhost:5000/api/weather/by-city",
-      {
-        params: {
-          city,
-          country: selectedCountry,
-        },
-      }
-    );
+  `${import.meta.env.VITE_BACKEND_URL}/api/weather/by-city`,
+  {
+    params: {
+      city,
+      country: selectedCountry,
+    },
+  }
+);
+
 
     onResult(res.data);
   } catch (err) {

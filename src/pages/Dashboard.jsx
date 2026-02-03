@@ -20,14 +20,15 @@ export default function Dashboard() {
 
         try {
           const res = await axios.get(
-            "http://localhost:5000/api/weather/by-coordinates",
-            {
-              params: {
-                lat: latitude,
-                lon: longitude,
-              },
-            }
-          );
+  `${import.meta.env.VITE_BACKEND_URL}/api/weather/by-coordinates`,
+  {
+    params: {
+      lat: latitude,
+      lon: longitude,
+    },
+  }
+);
+
 
           setWeather(res.data);
         } catch (err) {
